@@ -71,10 +71,6 @@
       <Project>{6eb032a6-96d9-4e1d-9e8b-1bc5174a7d09}</Project>
       <Name>SuperScript.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SuperScript.Container.WebForms\SuperScript.Container.WebForms.csproj">
-      <Project>{4425bbd0-4073-44a9-8ec9-cffcc245f011}</Project>
-      <Name>SuperScript.Container.WebForms</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
