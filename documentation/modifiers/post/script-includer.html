@@ -1,14 +1,14 @@
 <h2>ScriptIncluder Post-conversion Modifier</h2>
 
 <p>
-  Optionally incldues the client-side (typically JavaScript) HTML template framework script.
+	Optionally incldues the client-side (typically JavaScript) HTML template framework script.
 </p>
 
 <pre class="brush: c#">
 	class ScriptIncluder : SuperScript.Modifiers.Post.CollectionPostModifier
 	{
 		override PostModifierArgs Process(PreModifierArgs args)
-	  string ScriptPath { get; set; }
+		string ScriptPath { get; set; }
 	}
 </pre>
 
@@ -58,22 +58,28 @@
 		</td>
 	</tr>
 	<tr>
-	  <td>UseWhenBundled</td>
-	  <td>bool</td>
-	  <td>
-	    <p>
-	      
-	    </p>
+		<td>UseWhenBundled</td>
+		<td>bool</td>
+		<td>
+			<p>
+				Gets or sets whether this <abbr title="SuperScript.Modifiers.Post.CollectionPostModifier"><code>CollectionPostModifier</code></abbr>
+				should be implemented when the context emitter is being implemented in an 
+				<abbr title="SuperScript.Emitters.EmitterBundle"><code>EmitterBundle</code></abbr>.
+	    		</p>
+	    		<p>
+	    			More can be read about the <abbr title="SuperScript.Emitters.EmitterBundle"><code>EmitterBundle</code></abbr>
+	    			<a href="http://supertext.github.io/SuperScript.Common/#!/emitters.emitter-bundles" target="_blank">here</a>.
+	    		</p>
 			<p>
 				<strong>Optional</strong>. Default value: <code>false</code>.
 			</p>
-    </td>
+    		</td>
 	</tr>
 </table>
 
 <p>
 	Like all implementations of <abbr title="SuperScript.Modifiers.Post.CollectionPostModifier"><code>CollectionPostModifier</code></abbr>, 
-	<abbr title="SuperScript.JavaScript.Modifiers.Post.JavaScriptMinifier"><code>JavaScriptMinifier</code></abbr> exposes a 
+	<abbr title="SuperScript.Templates.Modifiers.Post.ScriptIncluder"><code>ScriptIncluder</code></abbr> exposes a 
 	public method, <abbr title="SuperScript.Modifiers.Post.CollectionPostModifier.Process"><code>Process</code></abbr> which accepts
 	an instance of <abbr title="SuperScript.Modifiers.PostModifierArgs"><code>PostModifierArgs</code></abbr>. This argument object's
 	<abbr title="SuperScript.Modifiers.PostModifierArgs.Emitted"><code>Emitted</code></abbr> property contains the output of either
