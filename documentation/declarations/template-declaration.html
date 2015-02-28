@@ -106,10 +106,10 @@
 <pre class="brush: c#">
     TemplateDeclaration declTemplate = new SuperScript.Templates.Declarables.TemplateDeclaration();
     declTemplate.Name = "templateNames";
-    declTemplate.Template = "<li>${Name}</li>";
+    declTemplate.Template = "&lt;li&gt;${Name}&lt;/li&gt;";
     declTemplate.EmitterKey = "templates";
     
-    SuperScript.Declarations.AddDeclaration<TemplateDeclaration>(declTemplate);
+    SuperScript.Declarations.AddDeclaration&lt;TemplateDeclaration&gt;(declTemplate);
 </pre>
 
 <p>
