@@ -1,0 +1,107 @@
+<h2>ScriptIncluder Post-conversion Modifier</h2>
+
+<p>
+  Optionally incldues the client-side (typically JavaScript) HTML template framework script.
+</p>
+
+<pre class="brush: c#">
+	class ScriptIncluder : SuperScript.Modifiers.Post.CollectionPostModifier
+	{
+		override PostModifierArgs Process(PreModifierArgs args)
+	  string ScriptPath { get; set; }
+	}
+</pre>
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Description</th>
+		</tr>
+	</thead>
+	<tr>
+		<td>Process</td>
+		<td>IHtmlString</td>
+		<td>
+			<p>
+				Prepends the contents of the referenced script file to the <abbr title="SuperScript.Modifiers.PostModifierArgs.Emitted"><code>Emitted</code></abbr> property
+				of the <abbr title="SuperScript.Modifiers.PostModifierArgs"><code>PostModifierArgs</code></abbr> object.
+			</p>
+		</td>
+	</tr>
+	<tr>
+	  <td>ScriptPath</td>
+	  <td>string</td>
+	  <td>
+	    <p>
+	        Gets or sets the path to the client-side (typically JavaScript) HTML template framework script to be packaged with
+	        the HTML templates.
+	    </p>
+	  </td>
+	</tr>
+	<tr>
+		<td colspan="3">
+			Inherited members
+		</td>
+	</tr>
+	<tr>
+		<td>EmitMode</td>
+		<td><abbr title="SuperScript.EmitMode"><code>EmitMode</code></abbr></td>
+		<td>
+			<p>
+				Determines the mode in which this implementation emits contents.
+			</p>
+			<p>
+				<strong>Optional</strong>. Default value: <abbr title="SuperScript.EmitMode.Always"><code>EmitMode.Always</code></abbr>
+			</p>
+		</td>
+	</tr>
+	<tr>
+	  <td>UseWhenBundled</td>
+	  <td>bool</td>
+	  <td>
+	    <p>
+	      
+	    </p>
+			<p>
+				<strong>Optional</strong>. Default value: <code>false</code>.
+			</p>
+    </td>
+	</tr>
+</table>
+
+<p>
+	Like all implementations of <abbr title="SuperScript.Modifiers.Post.CollectionPostModifier"><code>CollectionPostModifier</code></abbr>, 
+	<abbr title="SuperScript.JavaScript.Modifiers.Post.JavaScriptMinifier"><code>JavaScriptMinifier</code></abbr> exposes a 
+	public method, <abbr title="SuperScript.Modifiers.Post.CollectionPostModifier.Process"><code>Process</code></abbr> which accepts
+	an instance of <abbr title="SuperScript.Modifiers.PostModifierArgs"><code>PostModifierArgs</code></abbr>. This argument object's
+	<abbr title="SuperScript.Modifiers.PostModifierArgs.Emitted"><code>Emitted</code></abbr> property contains the output of either
+</p>
+
+<ul>
+	<li>
+		<p>
+			an implementation of <abbr title="SuperScript.Modifiers.Post.CollectionPostModifier"><code>CollectionPostModifier</code></abbr> which
+			has been configured for the context <abbr title="SuperScript.Emitters.IEmitter"><code>IEmitter</code></abbr>, or
+		</p>
+	</li>
+	<li>
+		<p>
+			an implementation of <abbr title="SuperScript.Modifiers.Converters.CollectionConverter"><code>CollectionConverter</code></abbr>.
+		</p>
+	</li>
+</ul>
+
+<p>
+	The result of the <abbr title="SuperScript.Modifiers.Post.CollectionPostModifier.Process"><code>Process</code></abbr> method
+	is an instance of <abbr title="SuperScript.Modifiers.PostModifierArgs"><code>PostModifierArgs</code></abbr> where the 
+	<abbr title="SuperScript.Modifiers.PostModifierArgs.Emitted"><code>Emitted</code></abbr> property contains the output of the
+	minification process.
+</p>
+
+<p>
+	<strong>Important:</strong> It should be remembered that multiple implementations of 
+	<abbr title="SuperScript.Modifiers.Post.CollectionPostModifier"><code>CollectionPostModifier</code></abbr> may
+	be configured for an <abbr title="SuperScript.Emitters.IEmitter"><code>IEmitter</code></abbr>.
+</p>
