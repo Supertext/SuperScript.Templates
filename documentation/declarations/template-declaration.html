@@ -105,8 +105,14 @@
 
 <pre class="brush: c#">
     TemplateDeclaration declTemplate = new SuperScript.Templates.Declarables.TemplateDeclaration();
+    
+    // specifying the template contents directly
     declTemplate.Name = "templateNames";
     declTemplate.Template = "&lt;li&gt;${Name}&lt;/li&gt;";
+    
+    // specifying a template file
+    declTemplate.Path = @"~\\templates\\templateNames.html";
+    
     declTemplate.EmitterKey = "templates";
     
     SuperScript.Declarations.AddDeclaration&lt;TemplateDeclaration&gt;(declTemplate);
