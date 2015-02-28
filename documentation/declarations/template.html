@@ -1,4 +1,121 @@
 <h2>The Template Declaration</h2>
 
 <p>
+    SuperScript.Templates contains a single implementation of <abbr title="SuperScript.Declarables.DeclarationBase"><code>DeclarationBase</code></abbr>, 
+    <abbr title="SuperScript.Templates.Declarables.TemplateDeclaration"><code>TemplateDeclaration</code></abbr>.
+</p>
+
+<pre class="brush: c#">
+    public class TemplateDeclaration : SuperScript.Declarables.DeclarationBase
+    {
+        string Path
+        string Template { get; set; }
+    }
+</pre>
+
+<p>
+    This class can accept either the contents or the path of an HTML template.
+</p>
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Description</th>
+		</tr>
+	</thead>
+	<tr>
+		<td>Path</td>
+		<td>string</td>
+		<td>
+			<p>
+			    Gets or sets the path to a file containing the template markup.
+			</p>
+			<p>
+			    The setter will retrieve the template markup from the specified path and assign this to HTML template.
+			</p>
+			<p>
+			    The setter will also set the <abbr title="SuperScript.Declarables.DeclarationBase.Name"><code>DeclarationBase.Name</code></abbr> property 
+			    from the specified file name (without file extension).
+			</p>
+		</td>
+	</tr>
+	<tr>
+		<td>Template</td>
+		<td>string</td>
+		<td>
+			<p>
+			    Gets or sets the template markup.
+			</p>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="3">
+			Inherited members
+		</td>
+	</tr>
+	<tr>
+		<td>Comment</td>
+		<td>string</td>
+		<td>
+			<p>
+				This text may be emitted onto its own line or after a variable, depending upon the specific implementation of <abbr title="SuperScript.JavaScript.Declarables.DeclarationBase"><code>DeclarationBase</code></abbr>.
+			</p>
+			<p>
+				<strong>Optional</strong>.
+			</p>
+		</td>
+	</tr>
+	<tr>
+		<td>EmitterKey</td>
+		<td>string</td>
+		<td>
+			<p>
+				Indicates which instance of <abbr title="SuperScript.Emitters.IEmitter"><code>IEmitter</code></abbr> the content should be added to.
+			</p>
+			<p>
+				<strong>Optional</strong>. If not specified then the contents will be added to the default implementation of <abbr title="SuperScript.Emitters.IEmitter"><code>IEmitter</code></abbr>.
+			</p>
+			<p>
+				Read more about the <em>default emitter</em> <a href="http://supertext.github.io/SuperScript.Common/#!/emitters.default-emitter">here</a>.
+			</p>
+		</td>
+	</tr>
+	<tr>
+		<td>Name</td>
+		<td>string</td>
+		<td>
+			<p>
+				Gets or sets the name assigned to this declarable.
+			</p>
+			<p>
+				<strong>Required</strong>.
+			</p>
+		</td>
+	</tr>
+</table>
+
+<h3 id="example">Example</h3>
+
+<p>
+    Instances of <abbr title="SuperScript.Templates.Declarables.TemplateDeclaration"><code>TemplateDeclaration</code></abbr> can
+    be declared as in the following example.
+</p>
+
+<pre class="brush: c#">
+    TemplateDeclaration declTemplate = new SuperScript.Templates.Declarables.TemplateDeclaration();
+    declTemplate.Name = "templateNames";
+    declTemplate.Template = "<li>${Name}</li>";
+    declTemplate.EmitterKey = "templates";
+    
+    SuperScript.Declarations.AddDeclaration<TemplateDeclaration>(declTemplate);
+</pre>
+
+<p>
+    The emitted output is dependent upon the modifiers in the referenced <abbr title="SuperScript.Emitters.IEmitter"><code>IEmitter</code></abbr>.
+    Therefore this example will go no further, but 
+    <a href="#!/modifiers.writers.template-stringify-html"><abbr title="SuperScript.Templates.Modifiers.Writers.TemplateStringifyHtml"><code>TemplateStringifyHtml</code></abbr></a> and
+    <a href="#!/modifiers.writers.template-stringify-javascript"><abbr title="SuperScript.Templates.Modifiers.Writers.TemplateStringifyJavaScript"><code>TemplateStringifyJavaScript</code></abbr></a>
+    both contain more complete examples.
 </p>
